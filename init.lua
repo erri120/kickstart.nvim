@@ -762,6 +762,9 @@ do
 
   require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
+  -- Automatically enable installed servers
+  require("mason-lspconfig").setup { automatic_enable = true }
+
   for name, server in pairs(servers) do
     vim.lsp.config(name, server)
     vim.lsp.enable(name)
